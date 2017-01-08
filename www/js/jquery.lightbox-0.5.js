@@ -262,19 +262,19 @@
 			if ( settings.activeImage != 0 ) {
 				if ( settings.fixedNavigation ) {
 					$('#lightbox-nav-btnPrev').css({ 'background' : 'url(' + settings.imageBtnPrev + ') left 15% no-repeat' })
-						.unbind()
-						.bind('click',function() {
+						.off()
+						.on('click',function() {
 							settings.activeImage = settings.activeImage - 1;
 							_set_image_to_view();
 							return false;
 						});
 				} else {
 					// Show the images button for Next buttons
-					$('#lightbox-nav-btnPrev').unbind().hover(function() {
+					$('#lightbox-nav-btnPrev').on().hover(function() {
 						$(this).css({ 'background' : 'url(' + settings.imageBtnPrev + ') left 15% no-repeat' });
 					},function() {
 						$(this).css({ 'background' : 'transparent url(' + settings.imageBlank + ') no-repeat' });
-					}).show().bind('click',function() {
+					}).show().on('click',function() {
 						settings.activeImage = settings.activeImage - 1;
 						_set_image_to_view();
 						return false;
@@ -286,19 +286,19 @@
 			if ( settings.activeImage != ( settings.imageArray.length -1 ) ) {
 				if ( settings.fixedNavigation ) {
 					$('#lightbox-nav-btnNext').css({ 'background' : 'url(' + settings.imageBtnNext + ') right 15% no-repeat' })
-						.unbind()
-						.bind('click',function() {
+						.off()
+						.on('click',function() {
 							settings.activeImage = settings.activeImage + 1;
 							_set_image_to_view();
 							return false;
 						});
 				} else {
 					// Show the images button for Next buttons
-					$('#lightbox-nav-btnNext').unbind().hover(function() {
+					$('#lightbox-nav-btnNext').off().hover(function() {
 						$(this).css({ 'background' : 'url(' + settings.imageBtnNext + ') right 15% no-repeat' });
 					},function() {
 						$(this).css({ 'background' : 'transparent url(' + settings.imageBlank + ') no-repeat' });
-					}).show().bind('click',function() {
+					}).show().on('click',function() {
 						settings.activeImage = settings.activeImage + 1;
 						_set_image_to_view();
 						return false;
@@ -322,7 +322,7 @@
 		 *
 		 */
 		function _disable_keyboard_navigation() {
-			$(document).unbind();
+			$(document).off();
 		}
 		/**
 		 * Perform the keyboard actions
@@ -466,7 +466,7 @@
 			do { var curDate = new Date(); }
 			while ( curDate - date < ms);
 		 };
-		// Return the jQuery object for chaining. The unbind method is used to avoid click conflict when the plugin is called more than once
-		return this.unbind('click').click(_initialize);
+		// Return the jQuery object for chaining. The off method is used to avoid click conflict when the plugin is called more than once
+		return this.off('click').click(_initialize);
 	};
 })(jQuery); // Call and execute the function immediately passing the jQuery object
