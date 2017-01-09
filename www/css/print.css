@@ -1,18 +1,1 @@
-body
-{
-	font-family:Myriad pro, Arial, Helvetica, sans-serif;
-	font-size:1em;
-	color:#000;
-	letter-spacing:0;
-}
-a
-{
-	color:#555;
-}
-.menu,
-.footer-menu,
-social,
-.noprint
-{
-	display:none;
-}
+body{font-family:Myriad pro,Arial,Helvetica,sans-serif;font-size:1em;color:#000;letter-spacing:0}a{color:#555}.footer-menu,.menu,.noprint,social{display:none}
